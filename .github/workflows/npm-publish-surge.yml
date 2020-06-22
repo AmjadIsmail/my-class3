@@ -26,8 +26,9 @@ jobs:
       uses: actions/setup-node@v2-beta
       with:
         node-version: 12
-        
-    - uses: borales/actions-yarn@v2.0.0
+
+      - name: GitHub Action for Yarn  
+      uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install
         
@@ -36,10 +37,10 @@ jobs:
       
     # Install Surge
     - name: Install Surge
-      run: npm install --global surge
+      run: npm install --g surge
     
     # Deploy Surge
     - name: Deploy React App to Surge
-      run: surge ./http://my-class3amjad.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      run: surge ./build http://my-class3amjad.surge.sh --token ${{ secrets.SURGE_TOKEN }}
       
 
