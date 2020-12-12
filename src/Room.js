@@ -7,10 +7,10 @@ const state = useState(true);
 console.log("State = " , state);
 let [isLit,setLit]= useState(false);
 let [age,setAge] = useState(24);
-let [Gender,setGender] = useState("Male");
+let [isGender,setGender] = useState(true);
 
 return(
-<div>
+<div className={`room ${isLit? "lit": "dark"}`}>
     this Room is {isLit? "lit": "dark"}
     <br/>
     Age : {age}
@@ -25,10 +25,13 @@ return(
     </button>
 
     <br/>
-    Gender = {Gender}
+    Gender = {isGender}
+    {isGender? "FeMale": "Male"}  
+     
     <button onClick={()=> 
-       { setGender(Gender? "FeMale": "Male");
-        console.log(Gender); 
+       {
+        setGender(!isGender);
+     
       }
         }>Switch Gender</button>
 </div>
